@@ -1,0 +1,29 @@
+package com.appelo.device
+
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+
+
+class CallManager(
+    private val context: Context
+) {
+
+
+    fun call(
+        phoneNumber: String
+    ) {
+
+        val intent =
+            Intent(
+                Intent.ACTION_CALL,
+                Uri.parse("tel:$phoneNumber")
+            )
+
+        intent.addFlags(
+            Intent.FLAG_ACTIVITY_NEW_TASK
+        )
+
+        context.startActivity(intent)
+    }
+}
