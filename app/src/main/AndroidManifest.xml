@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!-- Voice -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+
+    <!-- Phone Call -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+
+    <!-- SMS -->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+
+    <!-- Camera -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+
+    <!-- Flashlight -->
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+
+    <!-- Notifications -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+
+    <!-- Storage (old Android support) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+    <application
+
+
+        android:name=".AppeloApp"
+
+
+        android:allowBackup="true"
+
+
+        android:label="Appelo"
+
+
+        android:supportsRtl="true"
+
+
+        android:theme="@style/Theme.Appelo">
+
+
+
+        <activity
+
+
+            android:name=".MainActivity"
+
+
+            android:exported="true">
+
+
+            <intent-filter>
+
+
+                <action android:name="android.intent.action.MAIN"/>
+
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+
+
+            </intent-filter>
+
+
+        </activity>
+
+
+
+    </application>
+
+
+</manifest>
