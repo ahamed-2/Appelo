@@ -1,42 +1,94 @@
 package com.appelo.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+
 @Composable
-fun HomeScreen() {
+fun HomeScreen(){
 
-    var message by remember {
-        mutableStateOf("Hello, I am Appelo 🤖")
-    }
-
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
+            .background(
+                Color(0xFF050816)
+            )
+    ){
 
-        Text(
-            text = message,
-            style = MaterialTheme.typography.headlineSmall
-        )
+        ParticleBackground()
 
-        Spacer(
-            modifier = Modifier.height(30.dp)
-        )
 
-        Button(
-            onClick = {
-                message = "Listening..."
+        Column(
+
+            modifier =
+            Modifier.fillMaxSize(),
+
+            horizontalAlignment =
+            Alignment.CenterHorizontally,
+
+            verticalArrangement =
+            Arrangement.Center
+
+        ){
+
+
+            AIRotatingLogo()
+
+
+            Spacer(
+                modifier =
+                Modifier.height(40.dp)
+            )
+
+
+            Text(
+
+                text =
+                "Your Personal AI Assistant",
+
+                color =
+                Color.White,
+
+                style =
+                MaterialTheme
+                    .typography
+                    .headlineSmall
+
+            )
+
+
+            Spacer(
+                modifier =
+                Modifier.height(30.dp)
+            )
+
+
+            Row{
+
+
+                FuturisticButton(
+                    text = "🎤 Voice"
+                )
+
+
+                Spacer(
+                    modifier =
+                    Modifier.width(20.dp)
+                )
+
+
+                FuturisticButton(
+                    text = "💬 Chat"
+                )
+
             }
-        ) {
-            Text("🎤 Talk to Appelo")
+
         }
     }
 }
