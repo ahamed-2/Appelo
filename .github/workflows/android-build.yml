@@ -35,7 +35,7 @@ jobs:
       - name: Build APK
         run: |
           cd Appelo/android-app
-          gradle assembleDebug
+          gradle :app:assembleDebug
 
 
       - name: Upload APK
@@ -43,4 +43,5 @@ jobs:
 
         with:
           name: Appelo-debug-apk
+
           path: "**/build/outputs/apk/debug/*.apk"
