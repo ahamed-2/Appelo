@@ -1,6 +1,5 @@
 package com.appelo.ui
 
-
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -8,12 +7,18 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun FuturisticButton(
-    text:String
+
+    text: String,
+
+    onClick: () -> Unit
+
 ){
+
 
     Button(
 
-        onClick = {},
+        onClick = onClick,
+
 
         colors =
         ButtonDefaults.buttonColors(
@@ -25,10 +30,16 @@ fun FuturisticButton(
 
     ){
 
+
         Text(
+
             text = text,
-            color = Color.Cyan
+
+            color =
+            Color.Cyan
+
         )
 
     }
+
 }
