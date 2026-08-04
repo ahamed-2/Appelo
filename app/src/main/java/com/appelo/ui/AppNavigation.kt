@@ -1,31 +1,41 @@
 package com.appelo.ui
 
 import androidx.compose.runtime.*
-import androidx.compose.material3.*
 
 
 @Composable
 fun AppNavigation(){
 
 
-    var screen by remember {
+    var currentScreen by remember {
+
         mutableStateOf("home")
+
     }
 
 
-    when(screen){
+
+    when(currentScreen){
 
 
         "home" -> {
 
+
             HomeScreen(
 
                 onChatClick = {
-                    screen = "chat"
+
+                    currentScreen =
+                        "chat"
+
                 },
 
+
                 onVoiceClick = {
-                    screen = "voice"
+
+                    currentScreen =
+                        "voice"
+
                 }
 
             )
