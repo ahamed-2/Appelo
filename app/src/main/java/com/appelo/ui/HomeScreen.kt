@@ -11,15 +11,25 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen(
+
+    onChatClick: () -> Unit,
+
+    onVoiceClick: () -> Unit
+
+){
 
     Box(
-        modifier = Modifier
+
+        modifier =
+        Modifier
             .fillMaxSize()
             .background(
                 Color(0xFF050816)
             )
+
     ){
+
 
         ParticleBackground()
 
@@ -38,13 +48,29 @@ fun HomeScreen(){
         ){
 
 
-            AIRotatingLogo()
+            Box(
+
+                contentAlignment =
+                Alignment.Center
+
+            ){
+
+
+                OrbitRing()
+
+
+                AIRotatingLogo()
+
+
+            }
+
 
 
             Spacer(
                 modifier =
-                Modifier.height(40.dp)
+                Modifier.height(35.dp)
             )
+
 
 
             Text(
@@ -56,11 +82,22 @@ fun HomeScreen(){
                 Color.White,
 
                 style =
-                MaterialTheme
-                    .typography
+                MaterialTheme.typography
                     .headlineSmall
 
             )
+
+
+
+            Spacer(
+                modifier =
+                Modifier.height(15.dp)
+            )
+
+
+
+            VoiceWaveform()
+
 
 
             Spacer(
@@ -69,11 +106,18 @@ fun HomeScreen(){
             )
 
 
+
             Row{
 
 
                 FuturisticButton(
-                    text = "🎤 Voice"
+
+                    text =
+                    "🎤 Voice",
+
+                    onClick =
+                    onVoiceClick
+
                 )
 
 
@@ -83,12 +127,22 @@ fun HomeScreen(){
                 )
 
 
+
                 FuturisticButton(
-                    text = "💬 Chat"
+
+                    text =
+                    "💬 Chat",
+
+                    onClick =
+                    onChatClick
+
                 )
+
 
             }
 
         }
+
     }
+
 }
