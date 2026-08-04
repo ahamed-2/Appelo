@@ -1,4 +1,4 @@
-name: Build Appelo APk
+name: Build Appelo APK
 
 on:
   push:
