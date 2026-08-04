@@ -12,18 +12,16 @@ jobs:
 
   build:
 
-    name: Build Android APK
-
     runs-on: ubuntu-latest
 
 
     steps:
 
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
 
-      - name: Setup JDK 17
+      - name: Setup JDK
         uses: actions/setup-java@v4
         with:
           java-version: '17'
@@ -37,14 +35,12 @@ jobs:
       - name: Build APK
         run: |
           cd Appelo/android-app
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          gradle assembleDebug
 
 
-      - name: Upload Appelo APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
 
         with:
           name: Appelo-debug-apk
-
-          path: Appelo/android-app/app/build/outputs/apk/debug/*.apk
+          path: "**/build/outputs/apk/debug/*.apk"
