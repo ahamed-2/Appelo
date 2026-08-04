@@ -1,7 +1,6 @@
 name: Build Appelo APK
 
 on:
-
   push:
     branches:
       - main
@@ -13,22 +12,17 @@ jobs:
 
   build:
 
-    name: Build Android APK
-
     runs-on: ubuntu-latest
 
 
     steps:
 
-
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
 
-
-      - name: Setup JDK 17
+      - name: Setup Java
         uses: actions/setup-java@v4
-
         with:
 
           java-version: '17'
@@ -36,34 +30,18 @@ jobs:
           distribution: 'temurin'
 
 
-
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
 
-
-      - name: Check Project Structure
-        run: |
-
-          ls -la
-
-          ls -la Appelo/android-app
-
-          ls -la Appelo/android-app/app
-
-
-
-      - name: Build Debug APK
+      - name: Build APK
         run: |
 
           cd Appelo/android-app
 
           gradle clean
 
-          gradle :app:tasks
-
           gradle :app:assembleDebug
-
 
 
       - name: Upload APK
@@ -73,6 +51,6 @@ jobs:
 
           name: Appelo-debug-apk
 
-          path: |
+          path:
 
             Appelo/android-app/app/build/outputs/apk/debug/*.apk
