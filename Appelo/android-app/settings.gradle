@@ -1,3 +1,6 @@
+import org.gradle.api.initialization.resolve.RepositoriesMode
+
+
 pluginManagement {
 
     repositories {
@@ -32,4 +35,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Appelo"
 
-include ':app'
+include(":app")
