@@ -1,13 +1,58 @@
 package com.appelo.ai
 
-class AIController {
+import android.content.Context
+import com.appelo.settings.ApiKeyManager
+
+
+class AIController(
+    context: Context
+) {
+
+
+    private val keyManager =
+        ApiKeyManager(context)
+
+
 
     suspend fun askAI(
         message: String
     ): String {
 
-        // Gemini API পরে connect হবে
 
-        return "You said: $message"
+        val apiKey =
+            keyManager.getGeminiKey()
+
+
+
+        if(apiKey.isNullOrEmpty()) {
+
+            return "Please add Gemini API Key first."
+
+        }
+
+
+
+        return try {
+
+
+            val gemini =
+                GeminiClient(
+                    apiKey
+                )
+
+
+            gemini.askGemini(
+                message
+            )
+
+
+        } catch(e: Exception) {
+
+
+            "AI Error: ${e.message}"
+
+        }
+
     }
+
 }
