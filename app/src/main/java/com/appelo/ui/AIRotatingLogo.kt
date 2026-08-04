@@ -13,22 +13,43 @@ import androidx.compose.ui.unit.dp
 fun AIRotatingLogo(){
 
 
-    val rotation by rememberInfiniteTransition()
-        .animateFloat(
-            0f,
-            360f,
-            infiniteRepeatable(
-                tween(6000),
-                RepeatMode.Restart
-            )
+    val transition =
+        rememberInfiniteTransition()
+
+
+
+    val rotation by transition.animateFloat(
+        initialValue = 0f,
+        targetValue = 360f,
+        animationSpec =
+        infiniteRepeatable(
+            animation =
+            tween(8000),
+            repeatMode =
+            RepeatMode.Restart
         )
+    )
+
+
+    val pulse by transition.animateFloat(
+        initialValue = 50f,
+        targetValue = 80f,
+        animationSpec =
+        infiniteRepeatable(
+            animation =
+            tween(1500),
+            repeatMode =
+            RepeatMode.Reverse
+        )
+    )
+
 
 
     Canvas(
 
         modifier =
         Modifier
-            .size(180.dp)
+            .size(220.dp)
             .rotate(rotation)
 
     ){
@@ -37,10 +58,13 @@ fun AIRotatingLogo(){
         drawCircle(
 
             color =
-            Color.Cyan,
+            Color(0xFF00E5FF),
 
             radius =
-            70f
+            pulse,
+
+            alpha =
+            0.25f
 
         )
 
@@ -48,10 +72,21 @@ fun AIRotatingLogo(){
         drawCircle(
 
             color =
-            Color.Blue,
+            Color(0xFF007BFF),
 
             radius =
-            50f
+            55f
+
+        )
+
+
+        drawCircle(
+
+            color =
+            Color.White,
+
+            radius =
+            20f
 
         )
 
